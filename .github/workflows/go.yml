@@ -33,5 +33,12 @@ jobs:
     - name: Build
       run: go build -v .
 
+   
     - name: Test
-      run: go test -v .
+      run:  |
+        go test -race -v -coverprofile=coverage.txt ./...
+        bash <(curl -s https://codecov.io/bash)
+      env:
+        GITHUB_WEBHOOK_SECRET: ${{ secrets.WEBHOOK }}
+        GITHUB_TOKEN:  ${{ secrets.TOKEN }}  
+        
