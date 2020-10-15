@@ -25,7 +25,8 @@ FROM gcr.io/distroless/static:nonroot
 WORKDIR /
 COPY --from=builder /workspace/project .
 
-COPY --from=builder --chown=nonroot:nonroot /workspace/credentials /credentials
+# Remove comment below, if you have credentials
+# COPY --from=builder --chown=nonroot:nonroot /workspace/credentials /credentials
 USER nonroot:nonroot
 
 ARG buildtime_variable
