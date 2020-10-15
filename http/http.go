@@ -8,7 +8,8 @@ import (
 
 func SetupHandles() {
 	http.HandleFunc("/status", handles.Status)
-	// http.HandleFunc("/", handles.BaseRoot)
+	http.HandleFunc("/", handles.Status)
+
 }
 
 func Server() {
